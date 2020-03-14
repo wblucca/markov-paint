@@ -1,7 +1,8 @@
 /* Author: William Lucca */
 
 body {
-    background: #13242b
+    background: #13242b;
+    margin: 0;
 }
 
 h1 {
@@ -12,12 +13,75 @@ h1 {
     text-align: center;
 }
 
+
+
+/***********
+ * Toolbar *
+ ***********/
+
+#toolbar-container {
+    width: 100%;
+    background-color: #213d49;
+}
+
+#toolbar {
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+
+
+/***********
+ * Buttons *
+ ***********/
+
+button {height: 32px}
+
+#download {float: left}
+
+#add-brush, #del-brush {float: right}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: right;
+}
+
+li img {
+    display: block;
+    text-align: center;
+    padding: 4px;
+}
+
+li img:hover {
+    background-color: #3b6f85;
+}
+
+
+
+/**********
+ * Canvas *
+ **********/
+
+hr {
+    color: #13242b;
+    background-color: #69c2e8;
+    height: 3px;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
 #canvas-container {
     width: 100%;
     text-align: center;
 }
 
-canvas {
+#canvas {
     background-color: white;
     display: inline;
 }
