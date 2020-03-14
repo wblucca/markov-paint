@@ -1,16 +1,14 @@
 /* Author: William Lucca */
 
-any {
-
-}
-
 body {
     background: #13242b
 }
 
 h1 {
-    font-family: "Arial Black", sans-serif;
-    color: #bbb;
+    font-family: "Arial Rounded MT Bold", sans-serif;
+    background-image: linear-gradient(#050505, #FFF);
+    color: transparent;
+    -webkit-background-clip: text;
     text-align: center;
 }
 
