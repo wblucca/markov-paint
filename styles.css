@@ -20,8 +20,6 @@ h1 {
 }
 
 canvas {
-    width: 720px;
-    height: 480px;
     background-color: white;
     display: inline;
 }

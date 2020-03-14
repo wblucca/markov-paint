@@ -13,15 +13,12 @@
 <h1>Markov Painting</h1>
 
 <div id="canvas-container">
-	<canvas id="canvas">Your browser does not support canvas.</canvas>
+	<canvas id="canvas" width="720" height="480">
+		Your browser does not support canvas.
+	</canvas>
 </div>
 
-<script>
-	var canvas = document.getElementById("canvas");
-	var ctx = canvas.getContext("2D");
-	ctx.fillStyle = "red";
-	ctx.fillRect(10, 10, 100, 100);
-</script>
+<script type="text/javascript" src="MarkovPainting.js"></script>
 
 </body>
 </html>
