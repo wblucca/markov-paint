@@ -1,2 +1,1 @@
-// Author
-// William Lucca
+// Author: William Lucca

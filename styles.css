@@ -1,0 +1,27 @@
+/* Author: William Lucca */
+
+any {
+
+}
+
+body {
+    background: #13242b
+}
+
+h1 {
+    font-family: "Arial Black", sans-serif;
+    color: #bbb;
+    text-align: center;
+}
+
+#canvas-container {
+    width: 100%;
+    text-align: center;
+}
+
+canvas {
+    width: 720px;
+    height: 480px;
+    background-color: white;
+    display: inline;
+}
