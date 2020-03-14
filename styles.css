@@ -35,7 +35,15 @@ h1 {
  * Buttons *
  ***********/
 
-button {height: 32px}
+button {
+    height: 32px;
+    margin: 0 4px;
+    background-color: #213d49;
+    color: #e2e2e2;
+    border: #69c2e8 inset;
+}
+
+button:hover {background-color: #3b6f85}
 
 #download {float: left}
 
