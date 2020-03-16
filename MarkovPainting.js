@@ -1,3 +1,5 @@
+"use strict";
+
 // Author: William Lucca
 
 const SCALE_X = 0.88;

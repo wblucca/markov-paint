@@ -1,6 +1,6 @@
-// Author: William Lucca
-
 "use strict";
+
+// Author: William Lucca
 
 /**
  * Class that represents a single Markov painting brush
