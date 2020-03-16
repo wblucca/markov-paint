@@ -6,9 +6,10 @@ const NUM_BRUSHES = 20;
 
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
+let brushes = new Array(NUM_BRUSHES);
 
 /**
- * Initialize everything
+ * Initialize everything.
  */
 function init() {
 	setupCanvas();
@@ -16,18 +17,15 @@ function init() {
 }
 
 /**
- * Size the canvas to fit the screen well
+ * Size the canvas to fit the screen well.
  */
 function setupCanvas() {
-	console.log(canvas.width);
-
 	ctx.canvas.width = screen.width * SCALE_X;
 	ctx.canvas.height = screen.height * SCALE_Y;
-	console.log(canvas.width);
 }
 
 /**
- * Create brush buttons
+ * Create brush buttons.
  */
 function createBrushes() {
 	// Find the brush list
@@ -42,6 +40,12 @@ function createBrushes() {
 		list.appendChild(brush);
 	}
 }
+
+/**
+ * Create a brush for the given brush index.
+ * @param index the index to put this new brush data in.
+ */
+function addBrush(index) {}
 
 // Setup and get started
 window.onload = init;
