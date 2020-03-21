@@ -70,7 +70,9 @@ li img:hover {
     background-color: #3b6f85;
 }
 
-
+.selected {
+    background: #70d7ff;
+}
 
 /**********
  * Canvas *

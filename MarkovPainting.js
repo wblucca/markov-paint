@@ -10,6 +10,8 @@ let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 let brushes = new Array(NUM_BRUSHES);
 
+let selectedBrush = 0;
+
 /**
  * Initialize everything.
  */
@@ -35,19 +37,31 @@ function createBrushes() {
 
 	// Create each brush button
 	for (let i = 0; i < NUM_BRUSHES; i++) {
+		// Brush button
 		let brush = document.createElement('li');
+		list.appendChild(brush);
+
+		// Brush image
 		let brushImage = document.createElement('img');
 		brushImage.src = 'images/empty_brush.png';
 		brush.appendChild(brushImage);
-		list.appendChild(brush);
 	}
 }
 
 /**
- * Create a brush for the given brush index.
- * @param index the index to put this new brush data in.
+ * Called when the 'Add brush...' button is pressed. Calls input element.
  */
-function addBrush(index) {}
+function addBrush() {
+	document.getElementById('upload-img').click();
+}
+
+/**
+ * Create a brush for the selected index.
+ */
+function newBrush() {
+	let imageFile = document.getElementById('upload-img').files[0];
+	brushes[selectedBrush] = new Brush(imageFile);
+}
 
 // Setup and get started
 window.onload = init;

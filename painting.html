@@ -15,7 +15,8 @@
 <div id="toolbar-container">
 	<div id="toolbar">
 		<button id="download">Download...</button>
-		<button id="add-brush">Add brush...</button>
+		<button id="add-brush" onclick="addBrush()">Add brush...</button>
+		<input id="upload-img" type="file" onchange="newBrush()" hidden/>
 		<button id="del-brush">Clear brush</button>
 
 		<ul id="brush-list"></ul>
@@ -28,6 +29,7 @@
 </div>
 
 <script type="text/javascript" src="MarkovPainting.js"></script>
+<script type="text/javascript" src="Brush.js"></script>
 
 </body>
 </html>
