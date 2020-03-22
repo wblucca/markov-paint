@@ -9,33 +9,19 @@ class Brush {
 
 	/**
 	 * Construct a new Brush by analyzing a given image.
-	 * @param imageFile the URL of the image to create the Brush from.
+	 * @param image the image to create the Brush from.
 	 */
-	constructor(imageFile) {
-		// Create image from uploaded URL
-		this.img = new Image();
-		this.img.onload = this.drawToCanvas;
-		this.img.src = URL.createObjectURL(imageFile);
-		console.log(this.img);
-	}
-
-	/**
-	 * Create an invisible canvas and draw the image to it so we can read
-	 * individual pixels from it.
-	 */
-	drawToCanvas() {
-		// TODO: this.img is undefined.
-
+	constructor(image) {
 		// Create canvas for the input image
-		let canvas = document.createElement('canvas');
-		console.log(this.img);
-		canvas.width = this.img.width;
-		canvas.height = this.img.height;
+		let imgCanvas = document.createElement('canvas');
+		imgCanvas.width = image.width;
+		imgCanvas.height = image.height;
 
 		// Get context to use for reading pixels from image
-		this.imgCtx = canvas.getContext('2d');
-		this.imgCtx.drawImage(this.img, 0, 0);
+		this.imgCtx = imgCanvas.getContext('2d');
+		this.imgCtx.drawImage(image, 0, 0);
 
-		console.log(this.img);
+		console.log(image);
 	}
+
 }

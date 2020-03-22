@@ -6,7 +6,7 @@ const SCALE_X = 0.88;
 const SCALE_Y = 0.6;
 const NUM_BRUSHES = 20;
 
-let canvas = document.getElementById('canvas');
+let canvas = document.getElementById('paint-canvas');
 let ctx = canvas.getContext('2d');
 let brushes = new Array(NUM_BRUSHES);
 
@@ -24,8 +24,8 @@ function init() {
  * Size the canvas to fit the screen well.
  */
 function setupCanvas() {
-	ctx.canvas.width = screen.width * SCALE_X;
-	ctx.canvas.height = screen.height * SCALE_Y;
+	canvas.width = screen.width * SCALE_X;
+	canvas.height = screen.height * SCALE_Y;
 }
 
 /**
@@ -59,8 +59,13 @@ function addBrush() {
  * Create a brush for the selected index.
  */
 function newBrush() {
+	// Create image from uploaded URL
 	let imageFile = document.getElementById('upload-img').files[0];
-	brushes[selectedBrush] = new Brush(imageFile);
+	let image = new Image();
+	image.onload = function() {
+		brushes[selectedBrush] = new Brush(this);
+	};
+	image.src = URL.createObjectURL(imageFile);
 }
 
 // Setup and get started
