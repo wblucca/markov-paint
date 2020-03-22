@@ -13,7 +13,7 @@ let ctx = canvas.getContext('2d');
 let brushButtons = new Array(NUM_BRUSHES);
 let brushes = new Array(NUM_BRUSHES);
 
-let selectedBrush = 0;
+let selectedBrush;
 
 /**
  * Initialize everything.
@@ -21,6 +21,7 @@ let selectedBrush = 0;
 function init() {
 	setupCanvas();
 	createBrushes();
+	selectBrush(0);
 	window.onresize = setCanvasMargin;
 }
 
@@ -62,6 +63,7 @@ function createBrushes() {
  * of the toolbar container.
  */
 function setCanvasMargin() {
+	// Set the margin above the canvas to equal the height of the toolbar
 	canvasContainer.style.marginTop = toolbarContainer.scrollHeight + 'px';
 }
 
@@ -70,12 +72,16 @@ function setCanvasMargin() {
  * @param index the index of the brush to select.
  */
 function selectBrush(index) {
-	selectedBrush = index;
+	// Unselect the other brush buttons
 	for (let i = 0; i < NUM_BRUSHES; i++) {
 		brushButtons[i].className = '';
 	}
+
+	// Select the given index
 	brushButtons[index].className = 'selected';
-	console.log(selectedBrush);
+	selectedBrush = index;
+
+	console.log('Brush: ' + selectedBrush);
 }
 
 /**

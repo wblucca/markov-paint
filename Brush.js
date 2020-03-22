@@ -20,8 +20,32 @@ class Brush {
 		// Get context to use for reading pixels from image
 		this.imgCtx = imgCanvas.getContext('2d');
 		this.imgCtx.drawImage(image, 0, 0);
+	}
 
-		console.log(image);
+	/**
+	 * Record all the markov data from the Brush's image.
+	 */
+	analyzeImage() {
+	}
+
+	/**
+	 * Record a given pair of colors in the markov data.
+	 * @param color1 the preceding color.
+	 * @param color2 the next color.
+	 */
+	recordPair(color1, color2) {
+
+	}
+
+	/**
+	 * True if the coordinates are within the bounds of the image.
+	 * @param x the x-coordinate to test.
+	 * @param y the y-coordinate to test.
+	 */
+	inBounds(x, y) {
+		let validX = x >= 0 && x < this.imgCtx.width;
+		let validY = y >= 0 && y < this.imgCtx.height;
+		return validX && validY;
 	}
 
 }
