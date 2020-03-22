@@ -10,6 +10,7 @@ let toolbarContainer = document.getElementById('toolbar-container');
 let canvasContainer = document.getElementById('canvas-container');
 let canvas = document.getElementById('paint-canvas');
 let ctx = canvas.getContext('2d');
+let brushButtons = new Array(NUM_BRUSHES);
 let brushes = new Array(NUM_BRUSHES);
 
 let selectedBrush = 0;
@@ -39,14 +40,19 @@ function createBrushes() {
 	let list = document.getElementById('brush-list');
 
 	// Create each brush button
-	for (let i = 0; i < NUM_BRUSHES; i++) {
+	for (let i = NUM_BRUSHES - 1; i >= 0; i--) {
 		// Brush button
 		let brush = document.createElement('li');
+		brush.onclick = function() {
+			selectBrush(i);
+		};
+		brushButtons[i] = brush;
 		list.appendChild(brush);
 
 		// Brush image
 		let brushImage = document.createElement('img');
 		brushImage.src = 'images/empty_brush.png';
+		brushImage.onload = setCanvasMargin;
 		brush.appendChild(brushImage);
 	}
 }
@@ -56,8 +62,20 @@ function createBrushes() {
  * of the toolbar container.
  */
 function setCanvasMargin() {
-	console.log(toolbarContainer.clientHeight);
-	canvasContainer.style.marginTop = toolbarContainer.clientHeight + 'px';
+	canvasContainer.style.marginTop = toolbarContainer.scrollHeight + 'px';
+}
+
+/**
+ * Select the given brush for painting.
+ * @param index the index of the brush to select.
+ */
+function selectBrush(index) {
+	selectedBrush = index;
+	for (let i = 0; i < NUM_BRUSHES; i++) {
+		brushButtons[i].className = '';
+	}
+	brushButtons[index].className = 'selected';
+	console.log(selectedBrush);
 }
 
 /**
