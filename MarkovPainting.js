@@ -6,6 +6,8 @@ const SCALE_X = 0.88;
 const SCALE_Y = 0.6;
 const NUM_BRUSHES = 20;
 
+let toolbarContainer = document.getElementById('toolbar-container');
+let canvasContainer = document.getElementById('canvas-container');
 let canvas = document.getElementById('paint-canvas');
 let ctx = canvas.getContext('2d');
 let brushes = new Array(NUM_BRUSHES);
@@ -18,6 +20,7 @@ let selectedBrush = 0;
 function init() {
 	setupCanvas();
 	createBrushes();
+	window.onresize = setCanvasMargin;
 }
 
 /**
@@ -46,6 +49,15 @@ function createBrushes() {
 		brushImage.src = 'images/empty_brush.png';
 		brush.appendChild(brushImage);
 	}
+}
+
+/**
+ * Update the top margin of the canvas container to match the updated height
+ * of the toolbar container.
+ */
+function setCanvasMargin() {
+	console.log(toolbarContainer.clientHeight);
+	canvasContainer.style.marginTop = toolbarContainer.clientHeight + 'px';
 }
 
 /**

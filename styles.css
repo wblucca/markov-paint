@@ -1,32 +1,32 @@
 /* Author: William Lucca */
 
 body {
-    background: #13242b;
+    background: #101e24;
     margin: 0;
 }
 
-h1 {
-    font-family: "Arial Rounded MT Bold", sans-serif;
-    background-image: linear-gradient(#050505, #FFF);
-    color: transparent;
-    -webkit-background-clip: text;
-    text-align: center;
-}
 
 
-
-/***********
- * Toolbar *
- ***********/
+/**********************
+ * Header and Toolbar *
+ **********************/
 
 #toolbar-container {
+    position: fixed;
+    top: 0;
     width: 100%;
     background-color: #213d49;
 }
 
 #toolbar {
-    margin-left: 6%;
-    margin-right: 6%;
+    margin: 5px;
+}
+
+hr {
+    color: #69c2e8;
+    background-color: #69c2e8;
+    height: 1px;
+    margin-bottom: 0;
 }
 
 
@@ -78,20 +78,14 @@ li img:hover {
  * Canvas *
  **********/
 
-hr {
-    color: #13242b;
-    background-color: #69c2e8;
-    height: 3px;
-    margin-left: 6%;
-    margin-right: 6%;
-}
-
 #canvas-container {
     width: 100%;
+    margin-top: 150px;
     text-align: center;
 }
 
 #paint-canvas {
     background-color: white;
     display: inline;
+    margin: 15px;
 }
