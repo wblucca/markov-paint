@@ -7,6 +7,10 @@
  */
 class Brush {
 
+	numPairs = 0;
+	firstColorCount = new Map();
+	data = new Map();
+
 	/**
 	 * Construct a new Brush by analyzing a given image.
 	 * @param image the image to create the Brush from.
@@ -54,7 +58,35 @@ class Brush {
 	 * @param color2 the next color.
 	 */
 	recordPair(color1, color2) {
+		// Keep track of how many data points have been added
+		this.numPairs++;
 
+		// Add pair to data maps
+		if (!this.data.has(color1)) {
+			// New color1
+			// Create color2 map and initialize to 1
+			this.data.set(color1, new Map());
+			this.data[color1].set(color2, 1);
+
+			// Initialize count of color1 to 1
+			this.firstColorCount.set(color1, 1);
+		} else {
+			// Existing color1
+			let newColor1Count = this.firstColorCount.get(color1) + 1;
+			this.firstColorCount.set(color1, newColor1Count);
+
+			let color1Map = this.data.get(color1);
+			if (!color1Map.has(color2)) {
+				// New color2
+				// Initialize color 2 count to 1
+				color1Map.set(color2, 1);
+			} else {
+				// Existing color2
+				// Increment color 2 count
+				let newColor2Count = color1Map.get(color2) + 1;
+				color1Map.set(color2, newColor2Count);
+			}
+		}
 	}
 
 	/**
